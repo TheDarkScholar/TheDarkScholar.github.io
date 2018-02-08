@@ -20,3 +20,9 @@ function mouseClicked() {
   fill(random(255), random(255), random(255), random(255));
   rect(mouseX, mouseY, random(50, 200), random(50, 200));
 }
+
+function deviceShaken() {
+  textFont("Times New Roman");
+  textSize(32);
+  text("Reeeeee",random(width),random(height));
+}
