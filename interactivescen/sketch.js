@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  document : addEventListener("contextmenu", event => event.preventDefault());
+  document: addEventListener("contextmenu", event => event.preventDefault());
 }
 
 function draw() {
@@ -14,7 +14,7 @@ function mousePressed() {
     rect(mouseX, mouseY, random(50, 150), random(50, 150));
   }
   else if (mouseButton === RIGHT) {
-    ellipse(mouseX, mouseY, random(255), random(255));
+    ellipse(random(255), random(255), random(255), random(255));
   }
 }
 
@@ -28,8 +28,8 @@ function keyPressed() {
 }
 
 function deviceShaken() {
-  fill(random(255),random(255),random(255),random(255));
+  fill(random(255), random(255), random(255), random(255));
   textFont("Times New Roman");
   textSize(random(32, 100));
-  text("Hello there",random(width),random(height));
+  text("Hello There", random(width), random(height));
 }
