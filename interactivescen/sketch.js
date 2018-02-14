@@ -1,3 +1,4 @@
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
@@ -9,15 +10,17 @@ function draw() {
 }
 
 function mousePressed() {
-  noStroke();
-  fill(random(255), random(255), random(255));
-  if (mouseButton === RIGHT || mouseButton === LEFT) {
-    ellipse(random(255), random(255), 1, 1);
-  }
+
+
 }
 
 function keyPressed() {
+  noStroke();
+  fill(255,255,255);
 
+  if (key === "E" || key === "e") {
+    rect(random(windowWidth), random(windowHeight), 5, 5);
+  }
 }
 
 function deviceShaken() {
