@@ -6,24 +6,31 @@ let red, yellow, green;
 function setup() {
   createCanvas(600, 600);
   state = 3;
-  red = 10000;
-  green = 10000;
-  yellow = 5000;
+  red = 3500;
+  green = 3500;
+  yellow = 2000;
   lightDuration = millis();
 }
 
 function draw() {
   background(255);
   drawOutlineOfLights();
-  correctLight();
   checkLight();
+  correctLight();
 }
+
 
 function drawOutlineOfLights() {
   //box
   rectMode(CENTER);
   fill(0);
   rect(width / 2, height / 2, 75, 200, 10);
+
+  fill(255);
+  //lights
+  ellipse(width / 2, height / 2 - 65, 50, 50); //top
+  ellipse(width / 2, height / 2, 50, 50); //middle
+  ellipse(width / 2, height / 2 + 65, 50, 50); //bottom
 
 }
 function checkLight() {
@@ -58,14 +65,14 @@ function correctLight(){
   }
 }
 function drawGreenlight(){
-  ellipse(width / 2, height / 2 + 65, 50, 50); //bottom
   fill(0, 255, 0); //green
+  ellipse(width / 2, height / 2 + 65, 50, 50); //bottom
 }
 function drawYellowLight(){
-  ellipse(width / 2, height / 2, 50, 50); //middle
   fill(255, 255, 0); //yellow
+  ellipse(width / 2, height / 2, 50, 50); //middle
 }
 function drawRedLight(){
-  ellipse(width / 2, height / 2 - 65, 50, 50); //top
   fill(255, 0, 0); //red
+  ellipse(width / 2, height / 2 - 65, 50, 50); //top
 }
