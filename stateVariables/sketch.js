@@ -1,24 +1,25 @@
-
+let nebularea;
 let nebula;
 // shapes of nebula
 let nebula1 ={
-  area: width/ 2,
+  area: random(width)/2,
+  area2: random(height)/ 2
 };
 let nebula2 ={
-
+  area:
+  area2: 
 };
 let nebula3 ={
 
 };
-// types of nebula by color: hydrogen (red), helium (green), oxygen (blue), mixed (brownish)
-let hydrogen;
-let helium;
-let oxygen;
-let mixed;
+let state;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  let nebula = hydrogen;
+  let state = 1;
+  let nebula = state;
+  let nebularea = nebula1;
 }
 
 function draw() {
@@ -48,19 +49,20 @@ function keyPressed() {
 }
 
 function nebulaType(){
-  if (nebula === hydrogen){
+  if (nebula === 1){
     fill(random(255),0, 0, random(255));
-    ellipse(random(windowWidth), random(windowHeight), 4, 4);
+    ellipse(random(nebularea), random(nebularea), 4, 4);
+    state = random(1,4);
   }
-  else if (nebula === helium){
+  else if (nebula === 2){
     fill(0, random(255), 0, random(255));
     ellipse(random(windowWidth), random(windowHeight), 4, 4);
   }
-  else if (nebula === oxygen){
+  else if (nebula === 3){
     fill(0, 0, random(255), random(255));
     ellipse(random(windowWidth), random(windowHeight), 4, 4);
   }
-  else if (nebula === mixed){
+  else if (nebula === 4){
     fill(237, 147, 53, random(255));
     ellipse(random(windowWidth), random(windowHeight), 4, 4);
   }
