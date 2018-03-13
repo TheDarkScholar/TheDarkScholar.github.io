@@ -24,7 +24,7 @@ function keyPressed() {
     }
   }
   if (key === "N" || key === "n") {
-    for (var i = 0; i < 500; i++) {
+    for (let i = 0; i < 500; i++) {
       fill(random(255), random(255), random(255), random(255));
       ellipse(random(windowWidth), random(windowHeight), 4, 4);
     }
