@@ -1,5 +1,5 @@
 let heights = [];
-let numberORectangles=1000;
+let numberORectangles=1000000;
 
 
 function setup() {
