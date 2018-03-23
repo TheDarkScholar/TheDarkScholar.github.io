@@ -7,19 +7,20 @@ let nebula1 = {
   area2: random(windowHeight / 2)
 };
 let nebula2 = {
-  area: width / 4,
-  area2: height / 4
+  area: random(windowWidth / 4),
+  area2: random(windowHeight / 4)
 };
 let nebula3 = {
-  area: width / 6,
-  area2: height / 6
+  area: random(windowWidth / 6),
+  area2: random(windowHeight / 6)
 };
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   let state = 1;
   let nebula = state;
-
+  let nebularea = [nebula1.area,nebula2.area,nebula3.area];
+  let nebularea2= [nebula1.area2,nebula2.area2,nebula3.area2];
 }
 
 function draw() {
@@ -35,25 +36,25 @@ function mousePressed() {
 function createNebulae() {
   if (nebula === 1) {
     fill(random(255), 0, 0, random(255));
-    ellipse(nebula1.area, nebula1.area2, 3, 3);
+    ellipse(random(nebularea[0],nebularea[2]), random(nebularea2[0],nebularea2[2]), 3, 3);
     nebula = random(1, 4);
     return nebula;
   }
   else if (nebula === 2) {
     fill(0, random(255), 0, random(255));
-    ellipse(random(windowWidth), random(windowHeight), 3, 3);
+    ellipse(random(nebularea[0],nebularea[2]), random(nebularea2[0],nebularea2[2]), 3, 3);
     nebula = random(1, 4);
     return nebula;
   }
   else if (nebula === 3) {
     fill(0, 0, random(255), random(255));
-    ellipse(random(windowWidth), random(windowHeight), 3, 3);
+    ellipse(random(nebularea[0],nebularea[2]), random(nebularea2[0],nebularea2[2]), 3, 3);
     nebula = random(1, 4);
     return nebula;
   }
   else if (nebula === 4) {
     fill(237, 147, 53, random(255));
-    ellipse(random(windowWidth), random(windowHeight), 3, 3);
+    ellipse(random(nebularea[0],nebularea[2]), random(nebularea2[0],nebularea2[2]), 3, 3);
     nebula = random(1, 4);
     return nebula;
   }
