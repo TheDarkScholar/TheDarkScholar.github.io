@@ -1,20 +1,13 @@
-let rows = 30;
-let cols = 30;
+let rows = 75;
+let cols = 75;
 let grid;
 let cellSize;
-let autoPlay;
+let autoPlay = false;
 
 function setup() {
-  // createCanvas(600, 600);
-  if (windowWidth > windowHeight) {
-    createCanvas(windowHeight, windowHeight);
-  }
-  else {
-    createCanvas(windowWidth, windowWidth);
-  }
+  createCanvas(windowWidth, windowHeight);
   cellSize = width / cols;
   grid = createRandom2dArray(cols, rows);
-  autoPlay = false;
 }
 
 function draw() {
@@ -35,11 +28,10 @@ function nextTurn() {
     for (let y = 0; y < rows; y++) {
 
       let neighbours = 0;
-
       for (let i = -1; i <= 1; i++) {
         for (let j = -1; j <= 1; j++) {
           //edgey fix
-          if (x + i >= 0 && x + i >= cols && y + j >= 0 && y + j >= rows) {
+          if (x + i >= 0 && x + i < cols && y + j >= 0 && y + j < rows) {
             neighbours += grid[x + i][y + j];
           }
         }
@@ -72,12 +64,12 @@ function displayGrid() {
   for (let x = 0; x < cols; x++) {
     for (let y = 0; y < rows; y++) {
       if (grid[x][y] === 0) {
-        fill(0);
-      }
-      else {
         fill(255);
       }
-      rect(cellSize * x, cellSize * y, cellSize, cellSize);
+      else {
+        fill(0);
+      }
+      rect(x*cellSize,y*cellSize, cellSize, cellSize);
     }
   }
 }
@@ -86,10 +78,10 @@ function mousePressed() {
   let xcoord = floor(mouseX / cellSize);
   let ycoord = floor(mouseY / cellSize);
   if (grid[xcoord][ycoord] === 1) {
-    grid[xcoord][ycoord] === 0;
+    grid[xcoord][ycoord] = 0;
   }
   else {
-    grid[xcoord][ycoord] === 1;
+    grid[xcoord][ycoord] = 1;
   }
 }
 
