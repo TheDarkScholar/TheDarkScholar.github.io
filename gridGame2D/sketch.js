@@ -21,8 +21,17 @@ function displayGrid() {
       if (grid[x][y] === 0) {
         fill(255);
       }
-      else {
+      else if (grid[x][y] === 1){
         fill(0);
+      }
+      else if (grid[x][y] === 2){
+        fill(255,0,0);
+      }
+      else if (grid[x][y] === 3){
+        fill(0,255,0);
+      }
+      else if (grid[x][y] === 4){
+        fill(0,0,255);
       }
       rect(x*cellSize-1,y*cellSize+2, cellSize, cellSize);
     }
@@ -43,10 +52,24 @@ function createEmpty2dArray(cols, rows) {
 function mousePressed() {
   let xcoord = floor(mouseX / cellSize);
   let ycoord = floor(mouseY / cellSize);
-  if (grid[xcoord][ycoord] === 1) {
+  if (grid[xcoord][ycoord] === 0) {
+    grid[xcoord][ycoord] = 1;
+  }
+  else if (grid[xcoord][ycoord] === 1){
+    grid[xcoord][ycoord] = 2;
+  }
+  else if (grid[xcoord][ycoord] === 2){
+    grid[xcoord][ycoord] = 3;
+  }
+  else if (grid[xcoord][ycoord] === 3){
+    grid[xcoord][ycoord] = 4;
+  }
+  else if (grid[xcoord][ycoord] === 4){
     grid[xcoord][ycoord] = 0;
   }
-  else {
-    grid[xcoord][ycoord] = 1;
+}
+function keyPressed() {
+  if (key === "c" || key === "C") {
+    grid = createEmpty2dArray(cols, rows);
   }
 }
