@@ -44,7 +44,7 @@ class Ball {
   jiggle(){
     this.x += random(-3,3);
     this.y += random(-3,3);
-    this.radius += random(-25,25);
+    this.radius += random(-5,5);
   }
   goTo(x,y){
     this.x = x;
