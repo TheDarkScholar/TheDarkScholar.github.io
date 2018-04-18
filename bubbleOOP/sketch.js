@@ -1,54 +1,63 @@
-let ballArray = [];
-let ourTimer;
-
+let myBubble;
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  ballArray.push(new Bubble(windowWidth/2,windowHeight-5));
-  ourTimer = new Timer(2000);
+  myBubble = new Bubble(random(width), height, 25);
 }
 
 function draw() {
   background(255);
-  for (let i=0;i<ballArray.length;i++){
-    ballArray[i].display();
-    ballArray[i].jiggle();
-  }
-  if (ourTimer.isDone()) {
-    ballArray.push(new Bubble(windowWidth/random(10),windowHeight-5));
-    ourTimer.reset(2000);
-  }
+  myBubble.display();
+  myBubble.move();
 }
 
-function mousePressed(){
-  ballArray.push(new Bubble(mouseX,mouseY));
-}
 class Bubble {
   constructor(x,y){
     this.x = x;
     this.y = y;
     this.radius = 50;
+    this.dy = random(-2, -1);
+    this.bubbleTimer = new Timer(1000);
+    this.topHasBeenTouched = false;
   }
   display(){
-    fill(0);
-    ellipse(this.x,this.y,this.radius,this.radius);
+    if (!this.bubbleTimer.isDone()){
+      fill(0);
+      ellipse(this.x,this.y,this.radius,this.radius);
+    }
+
   }
-  jiggle(){
-    this.x += random(-0.75,0.75);
-    this.y -= 0.5;
-  }
-  goTo(x,y){
-    this.x = x;
-    this.y = y;
+  move() {
+    if (this.y > 0 + this.radius) {
+      this.y += this.dy;
+    }
+    else {
+      if (!this.topHasBeenTouched){
+        this.y = 0 + this.radius;
+        this.bubbleTimer.start();
+      }
+      else {
+        this.topHasBeenTouched = true;
+      }
+    }
+    this.x += random(-0.25, 0.25);
   }
 }
+
 
 class Timer {
   constructor(waitTime) {
     this.waitTime = waitTime;
+    // this.startTime = millis();
+    // this.finishTime = this.startTime + this.waitTime;
+    this.isFinished = false;
+  }
+
+  start(){
     this.startTime = millis();
     this.finishTime = this.startTime + this.waitTime;
     this.isFinished = false;
   }
+
   reset(newWaitTime) {
     this.waitTime = newWaitTime;
     this.startTime = millis();
