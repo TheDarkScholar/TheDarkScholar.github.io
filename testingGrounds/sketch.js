@@ -3,14 +3,14 @@ let characterXPos = 100;
 let characterYPos = 100;
 
 function preload() {
-  player1 = loadImage("images/armor move-1.png");
-  player2 = loadImage("images/armor move-2.png");
-  player3 = loadImage("images/armor move-3.png");
-  player4 = loadImage("images/armor move-4.png");
-  player5 = loadImage("images/armor move-5.png");
-  player6 = loadImage("images/armor move-6.png");
-  player7 = loadImage("images/armor move-7.png");
-  player8 = loadImage("images/armor move-8.png");
+  player1 = loadImage("images/armor-move-1.png");
+  player2 = loadImage("images/armor-move-2.png");
+  player3 = loadImage("images/armor-move-3.png");
+  player4 = loadImage("images/armor-move-4.png");
+  player5 = loadImage("images/armor-move-5.png");
+  player6 = loadImage("images/armor-move-6.png");
+  player7 = loadImage("images/armor-move-7.png");
+  player8 = loadImage("images/armor-move-8.png");
 }
 
 function setup() {
