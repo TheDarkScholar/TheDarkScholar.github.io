@@ -70,18 +70,17 @@ function playerHealth(){
 
 class HealthPotion{
   constructor(){
-    this.potionwidth;
-    this.potionheight;
-    this.potioncolor;
-    this.potionx;
-    this.potiony;
+    this.potionradius = 10;
+    this.potioncolor = (random(r),random(g),random(b));
+    this.potionx= random(windowWidth);
+    this.potiony = random(windowHeight);
     this.potiontop;
     this.potionbot;
     this.potionlft;
     this.potionrgt;
   }
   display(){
-    fill(random(r),random(g),random(b));
-    ellipse(this.potionx,this.potiony,this.potionwidth, this.potionheight);
+    fill(this.potioncolor);
+    ellipse(this.potionx,this.potiony,this.potionradius,this.potionradius);
   }
 }
